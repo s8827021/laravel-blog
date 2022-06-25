@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\PostRepository;
+use App\Models\Entities\Post;
+
+
 
 class PostController extends Controller
 {
@@ -11,9 +15,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    protected $postRepo;
+
+    public function __construct(PostRepository $postRepo)
+    {
+        $this->postRepo = $postRepo;
+    }
+
     public function index()
     {
-        //
+        $posts = $this->postRepo->index();
+        return view('post.index', ['posts' => $posts]);
     }
 
     /**
@@ -23,7 +37,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -34,7 +48,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $this->postRepo->create(request()->only('title', 'content'));
+
+        if ($post) {
+            return redirect()->route('post.show', $post->id);
+        }
+
+        return back();
     }
 
     /**
@@ -45,7 +65,13 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = $this->postRepo->find($id);
+
+        if (!$post) {
+            return redirect()->route('post.index');
+        }
+
+        return view('post.show', ['post' => $post]);
     }
 
     /**
@@ -56,7 +82,14 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $post = $this->postRepo->find($id);
+
+        if (!$post) {
+            return redirect()->route('post.index');
+        }
+
+        return view('post.edit', ['post' => $post]);
     }
 
     /**
@@ -68,7 +101,13 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $result = $this->postRepo->update($id, request()->only('title', 'content'));
+
+        if (!$result) {
+            return redirect()->route('post.index');
+        }
+
+        return redirect()->route('post.show', $id);
     }
 
     /**
@@ -79,6 +118,17 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = $this->postRepo->delete($id);
+
+        if ($result) {
+            return redirect()->route('post.index');
+        }
+
+        return back();
     }
+    public function delete($id)
+    {
+        return Post::destroy($id);
+    }
+
 }

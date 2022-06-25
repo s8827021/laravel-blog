@@ -20,12 +20,13 @@ return new class extends Migration
             $table->string('content');
             $table->timestamps();
 
-            $table->string('XXX_1')->nullable();
-            $table->string('XXX_2')->unique();
-            $table->string('XXX_3')->index();
-            $table->string('XXX_4')->default(1);
+            //$table->string('XXX_1')->nullable();
+            //$table->string('XXX_2')->unique();
+            //$table->string('XXX_3')->index();
+            //$table->integer('XXX_4')->default(1);
 
         });
+
     }
 
     /**

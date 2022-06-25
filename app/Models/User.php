@@ -43,7 +43,7 @@ class User extends Authenticatable
     ];
 
     public function posts() {
-        return $this->hasmany('App\Entities\Post');
+        return $this->hasmany('App\Models\Entities\Post');
     }
 
 }
