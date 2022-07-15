@@ -15,13 +15,20 @@
                                     ID
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
-                                    Name
+                                    Note
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
-                                    Email
+                                    Script Version
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
-                                    Created_at
+                                    Model
+                                </th>
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    Log Path
+                                </th>
+
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    Created Date
                                 </th>
                                 <th class="px-6 py-2 text-xs text-gray-500">
                                     Edit
@@ -32,23 +39,31 @@
                             </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-500">
-                            <tr v-for="item in stops.drinks" :key="item.idDrink" class="whitespace-nowrap">
+                            <tr v-for="item in UploadRecords" :key="item.id" class="whitespace-nowrap">
 
                                 <td class="px-6 py-4 text-sm text-center text-gray-500">
-                                    {{ item.idDrink }}
+                                    {{ item.id }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     <div class="text-sm text-gray-900">
-                                        {{ item.strCategory }}
+                                        {{ item.note }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     <div class="text-sm text-gray-500">
-                                        {{ item.strAlcoholic }}
+                                        {{ item.script_ver }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center">
+                                    <div class="text-sm text-gray-500">
+                                        {{ item.model }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-sm text-center text-gray-500">
-                                    {{ item.strGlass }}
+                                    {{ item.log_path }}
+                                </td>
+                                <td class="px-6 py-4 text-sm text-center text-gray-500">
+                                    {{ item.created_date }}
                                 </td>
                                 <td class="px-6 py-4 text-center">
                                     <a href="#"
@@ -80,15 +95,15 @@ export default {
     name: 'App',
     data() {
         return {
-            stops: []
+            UploadRecords: []
         }
     },
     mounted() {
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
+        fetch('http://192.168.99.59:9000/api/loginfos/0/')
             //fetch('/api/datasets/71CD1490-A2DF-4198-BEF1-318479775E8A/json/preview')
             .then(res => res.json())
             .then(data => {
-                this.stops = data;
+                this.UploadRecords = data;
             })
             .then(dataA => $('#dataTable').DataTable());
     }
