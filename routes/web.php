@@ -26,13 +26,13 @@ Route::get('/test', function () {
         return view('example');
 });
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Auth::routes();
+//
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth:web']], function () {
     Route::resource('post', PostController::class);
@@ -40,4 +40,4 @@ Route::group(['middleware' => ['auth:web']], function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
