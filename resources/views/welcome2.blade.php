@@ -29,6 +29,7 @@
 
 @section('content')
 <div id="app">
+    <vue-dropdown></vue-dropdown>
     <Upload-datatable></Upload-datatable>
 </div>
 @endsection

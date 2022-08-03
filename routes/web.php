@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome2');
 });
 Route::get('/test', function () {
-        return view('example');
+        return view('StationDropdown');
 });
 
 //Auth::routes();

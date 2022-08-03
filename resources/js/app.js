@@ -16,6 +16,8 @@ window.Vue = require('vue').default;
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
+
+
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -24,6 +26,9 @@ window.Vue = require('vue').default;
 Vue.component('NavHead', require('./components/NavBar.vue').default);
 Vue.component('upload-datatable', require('./components/LogDataTable.vue').default);
 Vue.component('vue-datatable', require('./components/DataTable.vue').default);
+Vue.component('vue-dropdown', require('./components/StationDropdown.vue').default);
+//Vue.component('Echarts-demo', require('./components/EchartsDemo.vue').default);
+
 
 
 /**
