@@ -4,9 +4,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+import Multiselect from 'vue-multiselect';
+import * as echarts from 'echarts/core';
+
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+Vue.use(VueAxios, axios, Multiselect, echarts);
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,7 +33,9 @@ Vue.component('NavHead', require('./components/NavBar.vue').default);
 Vue.component('upload-datatable', require('./components/LogDataTable.vue').default);
 Vue.component('vue-datatable', require('./components/DataTable.vue').default);
 Vue.component('vue-dropdown', require('./components/StationDropdown.vue').default);
-//Vue.component('Echarts-demo', require('./components/EchartsDemo.vue').default);
+Vue.component('multiselect-demo', require('./components/MultiSelect.vue').default);
+Vue.component('echarts-demo', require('./components/EchartsDemo.vue').default);
+
 
 
 
@@ -39,4 +47,5 @@ Vue.component('vue-dropdown', require('./components/StationDropdown.vue').defaul
 
 const app = new Vue({
     el: '#app',
+
 });

@@ -31,6 +31,8 @@
 <div id="app">
     <vue-dropdown></vue-dropdown>
     <Upload-datatable></Upload-datatable>
+    <multiselect-demo></multiselect-demo>
+        <echarts-demo></echarts-demo>
 </div>
 @endsection
 {{--    @endsection--}}

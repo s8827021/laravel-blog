@@ -1,71 +1,123 @@
 <template>
-    <div class="echarts-box">
-        <H1>Echarts Test</H1>
-        <div id="myEcharts" :style="{ width: '350px', height: '300px' }"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="p-5">
+    <div id="myChart" :style="{width: '600px', height: '300px'}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
+<script src={{ asset('js/echarts.min.js') }}></script>
 <script>
-import * as echarts from "echarts";
+import * as echarts from 'echarts'
 
-var myChart = echarts.init(document.getElementById("contain"));
+Vue.prototype.$echarts = echarts
 
-option = {
-    title: {
-        text: '时间变化图' // 标题
-    },
-    tooltip: {
-        trigger: 'axis' // 折线图
-    },
-    legend: {
-        data: ['时间'] // 图例，就是折线图上方的符号
-    },
-    toolbox: { // 工具箱，在折线图右上方的工具条，可以变成别的图像
-        show: true,
-        feature: {
-            mark: {show: true},
-            dataView: {show: true, readOnly: false},
-            magicType: {show: true, type: ['line', 'bar']},
-            restore: {show: true},
-            saveAsImage: {show: true}
+export default {
+    data() {
+        return {
+            msg: "Hello"
         }
     },
-    calculable: true, // 是否启动拖拽重计算属性，默认false
-    xAxis: [ // x坐标轴
-        {
-            axisLine: { // x坐标轴颜色
-                lineStyle: {color: '#333'}
-            },
-            axisLabel: { // x轴的数据会旋转30度
-                rotate: 30,
-                interval: 0
-            },
-            type: 'category',
-            boundaryGap: false, // x轴从0开始
-            data: [] // x轴数据
+    mounted() {
+        this.draw();
+    },
+    methods: {
+        draw() {
+            // 基于刚刚准备好的 DOM 容器，初始化 EChart 实例
+            let myChart = this.$echarts.init(document.getElementById('myChart'))
+            // 绘制图表
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        // Use axis to trigger tooltip
+                        type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                    }
+                },
+                legend: {},
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value'
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                },
+                series: [
+                    {
+                        name: 'Direct',
+                        type: 'bar',
+                        stack: 'total',
+                        label: {
+                            show: true
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [320, 302, 301, 334, 390, 330, 320]
+                    },
+                    {
+                        name: 'Mail Ad',
+                        type: 'bar',
+                        stack: 'total',
+                        label: {
+                            show: true
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name: 'Affiliate Ad',
+                        type: 'bar',
+                        stack: 'total',
+                        label: {
+                            show: true
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                    },
+                    {
+                        name: 'Video Ad',
+                        type: 'bar',
+                        stack: 'total',
+                        label: {
+                            show: true
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [150, 212, 201, 154, 190, 330, 410]
+                    },
+                    {
+                        name: 'Search Engine',
+                        type: 'bar',
+                        stack: 'total',
+                        label: {
+                            show: true
+                        },
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [820, 832, 901, 934, 1290, 1330, 1320]
+                    }
+                ]
+            });
         }
-    ],
-    yAxis: [ // y轴
-        {
-            type: 'value',
-            axisLabel: {
-                formatter: '{value} 秒' // y轴的值都加上秒的单位
-            },
-            axisLine: {
-                lineStyle: {color: '#333'}
-            }
-        }
-    ],
-    series: [ // 设置图标数据用
-        {
-            name: '时间',
-            type: 'line',
-            smooth: 0.3, // 线有弧度
-            data: [] // y轴数据
-        }
-    ]
-};
-// 使用刚指定的配置项和数据显示图表。
-myChart.setOption(option);
+    }
+}
 </script>
-
