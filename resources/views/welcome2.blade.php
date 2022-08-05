@@ -30,9 +30,9 @@
 @section('content')
 <div id="app">
     <vue-dropdown></vue-dropdown>
-    <Upload-datatable></Upload-datatable>
-    <multiselect-demo></multiselect-demo>
+        <multiselect-demo></multiselect-demo>
         <echarts-demo></echarts-demo>
+    <Upload-datatable></Upload-datatable>
 </div>
 @endsection
 {{--    @endsection--}}
