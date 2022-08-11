@@ -32,6 +32,7 @@
     <vue-dropdown></vue-dropdown>
         <multiselect-demo></multiselect-demo>
         <echarts-demo></echarts-demo>
+        <d3bar-demo></d3bar-demo>
         <d3-demo></d3-demo>
     <Upload-datatable></Upload-datatable>
 
