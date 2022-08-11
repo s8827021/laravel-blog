@@ -28,15 +28,34 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="app">
-    <vue-dropdown></vue-dropdown>
-        <multiselect-demo></multiselect-demo>
-        <echarts-demo></echarts-demo>
-        <d3bar-demo></d3bar-demo>
-        <d3-demo></d3-demo>
-    <Upload-datatable></Upload-datatable>
-
-</div>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <vue-dropdown></vue-dropdown>
+                </div>
+                <div class="col-md-6">
+                    <multiselect-demo></multiselect-demo>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <echarts-demo></echarts-demo>
+                </div>
+                <div class="col-md-6">
+                    <d3bar-demo></d3bar-demo>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <d3-demo></d3-demo>
+                </div>
+                <div class="col-md-6">
+                    <Upload-datatable></Upload-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 {{--    @endsection--}}
 {{--</div>--}}
@@ -46,3 +65,17 @@
 {{--</body>--}}
 {{--</html>--}}
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+</div>
