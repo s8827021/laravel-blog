@@ -35,6 +35,7 @@ Vue.component('vue-datatable', require('./components/DataTable.vue').default);
 Vue.component('vue-dropdown', require('./components/StationDropdown.vue').default);
 Vue.component('multiselect-demo', require('./components/MultiSelect.vue').default);
 Vue.component('echarts-demo', require('./components/EchartsDemo.vue').default);
+Vue.component('d3-demo', require('./components/D3demo.vue').default);
 
 
 
