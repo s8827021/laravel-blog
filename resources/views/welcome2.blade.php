@@ -51,7 +51,8 @@
                     <d3-demo></d3-demo>
                 </div>
                 <div class="col-md-6">
-                    <Upload-datatable></Upload-datatable>
+                    {{--                    <Upload-datatable></Upload-datatable>--}}
+                    <axios-demo></axios-demo>
                 </div>
             </div>
         </div>
@@ -64,18 +65,3 @@
 
 {{--</body>--}}
 {{--</html>--}}
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-        </div>
-        <div class="col-md-6">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-        </div>
-        <div class="col-md-6">
-        </div>
-    </div>
-</div>

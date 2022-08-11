@@ -37,7 +37,7 @@ Vue.component('multiselect-demo', require('./components/MultiSelect.vue').defaul
 Vue.component('echarts-demo', require('./components/EchartsDemo.vue').default);
 Vue.component('d3-demo', require('./components/D3demo.vue').default);
 Vue.component('d3bar-demo', require('./components/D3Bardemo.vue').default);
-
+Vue.component('axios-demo', require('./components/AxiosDataTable.vue').default);
 
 
 
