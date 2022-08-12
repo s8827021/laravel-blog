@@ -29,7 +29,7 @@ Vue.use(VueAxios, axios, Multiselect, echarts);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //Vue.component('home', require('./components/Home.vue').default);
-Vue.component('NavHead', require('./components/NavBar.vue').default);
+Vue.component('navhead', require('./components/NavBar.vue').default);
 Vue.component('upload-datatable', require('./components/LogDataTable.vue').default);
 Vue.component('vue-datatable', require('./components/DataTable.vue').default);
 Vue.component('vue-dropdown', require('./components/StationDropdown.vue').default);

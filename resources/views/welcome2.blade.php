@@ -31,28 +31,35 @@
     <div id="app">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6">
-                    <vue-dropdown></vue-dropdown>
+                <div class = "col-md-2">
+                    <navhead></navhead>
                 </div>
-                <div class="col-md-6">
-                    <multiselect-demo></multiselect-demo>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <echarts-demo></echarts-demo>
-                </div>
-                <div class="col-md-6">
-                    <d3bar-demo></d3bar-demo>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <d3-demo></d3-demo>
-                </div>
-                <div class="col-md-6">
-                    {{--                    <Upload-datatable></Upload-datatable>--}}
-                    <axios-demo></axios-demo>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <vue-dropdown></vue-dropdown>
+                        </div>
+                        <div class="col-md-6">
+                            <multiselect-demo></multiselect-demo>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <echarts-demo></echarts-demo>
+                        </div>
+                        <div class="col-md-6">
+                            <d3bar-demo></d3bar-demo>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <d3-demo></d3-demo>
+                        </div>
+                        <div class="col-md-6">
+                            {{--                    <Upload-datatable></Upload-datatable>--}}
+                            <axios-demo></axios-demo>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
